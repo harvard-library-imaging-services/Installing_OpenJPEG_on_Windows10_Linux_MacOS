@@ -33,7 +33,35 @@
   
 ### Encoding
 
-<script src="https://gist.github.com/comstock/b8abed5b0e75a4b2f531f0489231ccbb.js"></script>
+* Command: `opj_compress`
+* Switches:
+	* `-i <inputFile.ext>`
+	*  `-p RLCP` (progression order)
+	*  `-t 1024,1024` (tile size)
+	*  `-EPH` (End of Packet Header marker)
+	*  `-SOP` (Start of Packet)
+	*  `-ImgDir <image dir>` (cannot be used with **-i** switch)
+	*  `-OutFor <ext>` (extension for output files)
+	*  `-o <outputFile.ext>`
+	*  `-I` (specifies lossy encoding)
+	*  `-q <quality in dB>,<quality in dB>,...`
+	*  `-r <compression ratio>,<compression ratio>,...`
+
+### Lossless example
+
+`opj_compress -i D9_NS.tif -o D9_NS.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2`
+
+### Lossy example
+
+* `opj_compress -i D9_NS.tif -o D9_NS.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -I -q 42`
+* `opj_compress -i D9_NS.tif -o D9_NS.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -r 10`
+
+### [_decompress_](http://manpages.ubuntu.com/manpages/cosmic/man1/opj_decompress.1.html): converting JP2 files to other formats
+
+`opj_decompress -i infile.j2k -o outfile.png`
+
+`opj_decompress -ImgDir images/ -OutFor tif`
+
   
   ---
   
