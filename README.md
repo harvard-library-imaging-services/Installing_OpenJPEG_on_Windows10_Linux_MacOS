@@ -19,6 +19,16 @@
 		* `cd openjpeg-master/`
 		* Follow the installation instructions, per *[OpenJPEG installation](https://github.com/uclouvain/openjpeg/blob/master/INSTALL.md#openjpeg-installation)*.
 
+
+> sudo ldconfig
+> 
+
+* Install imagemagick from source code. **Download**: `wget https://github.com/ImageMagick/ImageMagick/archive/master.zip`
+	* `unzip master.zip`
+	* Follow the [ImageMagick installation instructions](https://github.com/ImageMagick/ImageMagick/blob/master/Install-unix.txt) 
+
+---
+
 * Install some additional modules: ` sudo apt-get install graphicsmagick imagemagick`
 
 ### Test your installation
