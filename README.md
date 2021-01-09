@@ -25,6 +25,14 @@
 
 * [Download a test image](https://github.com/harvard-library-imaging-services/images/raw/master/001.tif)
 
+* Run the following commands:
+
   `convert 001.tif 001_via_imagemagick.jp2` # test imagemagick installation
 
   `opj_compress -i 001.tif -o 001.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -I -q 42` # test openJPEG installation
+  
+  ---
+  
+  end
+  
+  
