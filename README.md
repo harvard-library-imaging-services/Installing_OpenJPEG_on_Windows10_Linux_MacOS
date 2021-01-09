@@ -31,6 +31,10 @@
 
   `opj_compress -i 001.tif -o 001.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -I -q 42` # test openJPEG installation
   
+### Encoding
+
+<script src="https://gist.github.com/comstock/b8abed5b0e75a4b2f531f0489231ccbb.js"></script>
+  
   ---
   
   end
