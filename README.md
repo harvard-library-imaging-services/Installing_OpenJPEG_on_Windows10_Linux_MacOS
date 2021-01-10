@@ -10,22 +10,32 @@
 
 * Update the installation by running the following command: `sudo apt-get update ; sudo apt-get upgrade -y`
 
-* Install some additional software modules: `sudo apt-get install libtiff-tools jasper exiftool git git-lfs cmake liblcms2-dev libtiff-dev libpng-dev libz-dev unzip`.
+* Install some additional software modules: `sudo apt-get install libopenjp2-7-dev libtiff-tools exiftool git git-lfs cmake liblcms2-dev libtiff-dev libpng-dev libz-dev unzip`.
 
 * Install OpenJPEG by compiling the source code:
 
 	* Download the source code: `wget https://github.com/uclouvain/openjpeg/archive/master.zip`
 		* Unzip: `unzip master.zip`
 		* `cd openjpeg-master/`
+		* `mkdir build`
+		* `cd build`
+		* `./configure --enable-shared`
 		* Follow the installation instructions, per *[OpenJPEG installation](https://github.com/uclouvain/openjpeg/blob/master/INSTALL.md#openjpeg-installation)*.
+		* `sudo ldconfig ; sudo ldconfig /usr/local/bin`
 
-
-> sudo ldconfig
-> 
-
-* Install imagemagick from source code. **Download**: `wget https://github.com/ImageMagick/ImageMagick/archive/master.zip`
+* Install imagemagick from source code:
+> Follow the [ImageMagick installation instructions](https://github.com/ImageMagick/ImageMagick/blob/master/Install-unix.txt) 
+	* `cd ~/install`
+	* `wget https://github.com/ImageMagick/ImageMagick/archive/master.zip`
 	* `unzip master.zip`
-	* Follow the [ImageMagick installation instructions](https://github.com/ImageMagick/ImageMagick/blob/master/Install-unix.txt) 
+	* `cd ImageMagick-master`
+	* `./configure --enable-shared`
+	* `./configure LDFLAGS=-L/usr/local`
+	* `make`
+	* `sudo make install`
+	* `sudo make clean`
+	* 
+	
 
 ---
 
