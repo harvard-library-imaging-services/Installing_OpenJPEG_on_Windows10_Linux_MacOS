@@ -79,12 +79,11 @@
 * `opj_compress -i D9_NS.tif -o D9_NS.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -I -q 42`
 * `opj_compress -i D9_NS.tif -o D9_NS.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -r 10`
 
-### [_decompress_](http://manpages.ubuntu.com/manpages/cosmic/man1/opj_decompress.1.html): converting JP2 files to other formats
+### [Decompress](http://manpages.ubuntu.com/manpages/cosmic/man1/opj_decompress.1.html): converting JP2 files to other formats
 
 `opj_decompress -i infile.j2k -o outfile.png`
 
 `opj_decompress -ImgDir images/ -OutFor tif`
-
   
   ---
   
