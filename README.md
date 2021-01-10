@@ -4,9 +4,9 @@
 
 ### 1. Install Ubuntu 20.04 LTS
 
-* From the Windows App Store, **download** [Ubuntu](https://www.microsoft.com/en-us/p/ubuntu-2004-lts/9n6svws3rx71?cid=msft_web_chart&activetab=pivot:overviewtab).
+> From the Windows App Store, **download** [Ubuntu](https://www.microsoft.com/en-us/p/ubuntu-2004-lts/9n6svws3rx71?cid=msft_web_chart&activetab=pivot:overviewtab).
 
-* Follow [Microsoft's installation instructions](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+> Follow [Microsoft's installation instructions](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
 * Update the installation by running the following command: `sudo apt-get update ; sudo apt-get upgrade -y`
 
@@ -19,13 +19,14 @@
 
 > Follow the installation instructions, per [OpenJPEG installation](https://github.com/uclouvain/openjpeg/blob/master/INSTALL.md#openjpeg-installation).
 
-* Unzip: `unzip master.zip`
+* `unzip master.zip`
 * `cd openjpeg-master/`
 * `mkdir build`
 * `cd build`
 * `./configure --enable-shared`
 		
 ### 3. Install imagemagick from source code:
+
 > Follow the [ImageMagick installation instructions](https://github.com/ImageMagick/ImageMagick/blob/master/Install-unix.txt)
 
 * `cd ~/install`
@@ -40,6 +41,7 @@
 * `sudo make clean`
 
 ### Test your installation
+
 * `mkdir ~/images`
 * `cd ~/images`
 * `wget https://github.com/harvard-library-imaging-services/images/raw/master/001.tif`
