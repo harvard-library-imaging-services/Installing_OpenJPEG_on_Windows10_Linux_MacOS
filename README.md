@@ -85,9 +85,9 @@
 
 ### [Decompress](http://manpages.ubuntu.com/manpages/cosmic/man1/opj_decompress.1.html): converting JP2 files to other formats
 
-`opj_decompress -i infile.j2k -o outfile.png`
+* `opj_decompress -i infile.j2k -o outfile.png`
 
-`opj_decompress -ImgDir images/ -OutFor tif`
+* `opj_decompress -ImgDir images/ -OutFor tif`
   
   ---
   
