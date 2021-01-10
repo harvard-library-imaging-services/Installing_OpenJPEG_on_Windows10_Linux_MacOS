@@ -12,30 +12,32 @@
 
 * Install some additional software modules: `sudo apt-get install pkg-config emacs-nox libltdl-dev libopenjp2-7-dev libtiff-tools exiftool git git-lfs cmake liblcms2-dev libtiff-dev libpng-dev libz-dev unzip`.
 
-* Install OpenJPEG by compiling the source code:
-	* `mkdir ~/install`
-	* `cd ~/install`
-	* Download the source code: `wget https://github.com/uclouvain/openjpeg/archive/master.zip`
-	> Follow the installation instructions, per [OpenJPEG installation](https://github.com/uclouvain/openjpeg/blob/master/INSTALL.md#openjpeg-installation).
-	* Unzip: `unzip master.zip`
-	* `cd openjpeg-master/`
-	* `mkdir build`
-	* `cd build`
-	* `./configure --enable-shared`
+### 2. Install OpenJPEG by compiling the source code:
+* `mkdir ~/install`
+* `cd ~/install`
+* Download the source code: `wget https://github.com/uclouvain/openjpeg/archive/master.zip`
+
+> Follow the installation instructions, per [OpenJPEG installation](https://github.com/uclouvain/openjpeg/blob/master/INSTALL.md#openjpeg-installation).
+
+* Unzip: `unzip master.zip`
+* `cd openjpeg-master/`
+* `mkdir build`
+* `cd build`
+* `./configure --enable-shared`
 		
-* Install imagemagick from source code:
+### 3. Install imagemagick from source code:
 > Follow the [ImageMagick installation instructions](https://github.com/ImageMagick/ImageMagick/blob/master/Install-unix.txt)
 
-	* `cd ~/install`
-	* `rm master.zip`
-	* `wget https://github.com/ImageMagick/ImageMagick/archive/master.zip`
-	* `unzip master.zip`
-	* `cd ImageMagick-master`
-	* `sudo pkg-config PKG_CONFIG_PATH=~/install/openjpeg-master/build` # make sure system sees the libopenjp2.pc file just created by `config`. To look for the libopenjp2.pc files: `find ~ -type f | grep libopenjp2.pc`
-	* `./configure --enable-shared`
-	* `sudo make`
-	* `sudo make install`
-	* `sudo make clean`
+* `cd ~/install`
+* `rm master.zip`
+* `wget https://github.com/ImageMagick/ImageMagick/archive/master.zip`
+* `unzip master.zip`
+* `cd ImageMagick-master`
+* `sudo pkg-config PKG_CONFIG_PATH=~/install/openjpeg-master/build` # make sure system sees the libopenjp2.pc file just created by `config`. To look for the libopenjp2.pc files: `find ~ -type f | grep libopenjp2.pc`
+* `./configure --enable-shared`
+* `sudo make`
+* `sudo make install`
+* `sudo make clean`
 
 ### Test your installation
 * `mkdir ~/images`
