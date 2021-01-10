@@ -34,7 +34,10 @@
 * `wget https://github.com/ImageMagick/ImageMagick/archive/master.zip`
 * `unzip master.zip`
 * `cd ImageMagick-master`
-* `sudo pkg-config PKG_CONFIG_PATH=~/install/openjpeg-master/build` # make sure system sees the libopenjp2.pc file just created by `config`. To look for the libopenjp2.pc files: `find ~ -type f | grep libopenjp2.pc`
+
+> Make sure system sees the libopenjp2.pc file just created by `config`. To look for the libopenjp2.pc files: `find ~ -type f | grep libopenjp2.pc`
+
+* `sudo pkg-config PKG_CONFIG_PATH=~/install/openjpeg-master/build`
 * `./configure --enable-shared`
 * `sudo make`
 * `sudo make install`
