@@ -10,7 +10,7 @@
 
 * Update the installation by running the following command: `sudo apt-get update ; sudo apt-get upgrade -y`
 
-* Install some additional software modules: `sudo apt-get install exiftool git git-lfs cmake liblcms2-dev libtiff-dev libpng-dev libz-dev unzip`.
+* Install some additional software modules: `sudo apt-get install jasper exiftool git git-lfs cmake liblcms2-dev libtiff-dev libpng-dev libz-dev unzip`.
 
 * Install OpenJPEG by compiling the source code:
 
