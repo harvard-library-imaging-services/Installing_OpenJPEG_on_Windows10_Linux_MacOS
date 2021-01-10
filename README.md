@@ -16,13 +16,13 @@
 	* `mkdir ~/install`
 	* `cd ~/install`
 	* Download the source code: `wget https://github.com/uclouvain/openjpeg/archive/master.zip`
-		* Unzip: `unzip master.zip`
-		* `cd openjpeg-master/`
-		* `mkdir build`
-		* `cd build`
-		* `./configure --enable-shared`
-		* Follow the installation instructions, per *[OpenJPEG installation](https://github.com/uclouvain/openjpeg/blob/master/INSTALL.md#openjpeg-installation)*.
-
+	> Follow the installation instructions, per [OpenJPEG installation](https://github.com/uclouvain/openjpeg/blob/master/INSTALL.md#openjpeg-installation).
+	* Unzip: `unzip master.zip`
+	* `cd openjpeg-master/`
+	* `mkdir build`
+	* `cd build`
+	* `./configure --enable-shared`
+		
 * Install imagemagick from source code:
 > Follow the [ImageMagick installation instructions](https://github.com/ImageMagick/ImageMagick/blob/master/Install-unix.txt)
 
