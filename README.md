@@ -10,10 +10,11 @@
 
 * Update the installation by running the following command: `sudo apt-get update ; sudo apt-get upgrade -y`
 
-* Install some additional software modules: `sudo apt-get install emacs-nox libltdl-dev libopenjp2-7-dev libtiff-tools exiftool git git-lfs cmake liblcms2-dev libtiff-dev libpng-dev libz-dev unzip`.
+* Install some additional software modules: `sudo apt-get install pkg-config emacs-nox libltdl-dev libopenjp2-7-dev libtiff-tools exiftool git git-lfs cmake liblcms2-dev libtiff-dev libpng-dev libz-dev unzip`.
 
 * Install OpenJPEG by compiling the source code:
-
+	* `mkdir ~/install`
+	* `cd ~/install`
 	* Download the source code: `wget https://github.com/uclouvain/openjpeg/archive/master.zip`
 		* Unzip: `unzip master.zip`
 		* `cd openjpeg-master/`
@@ -21,30 +22,24 @@
 		* `cd build`
 		* `./configure --enable-shared`
 		* Follow the installation instructions, per *[OpenJPEG installation](https://github.com/uclouvain/openjpeg/blob/master/INSTALL.md#openjpeg-installation)*.
-		* `sudo ldconfig ; sudo ldconfig /usr/local/bin`
 
 * Install imagemagick from source code:
-> Follow the [ImageMagick installation instructions](https://github.com/ImageMagick/ImageMagick/blob/master/Install-unix.txt) 
+> Follow the [ImageMagick installation instructions](https://github.com/ImageMagick/ImageMagick/blob/master/Install-unix.txt)
 	* `cd ~/install`
+	* `rm master.zip`
 	* `wget https://github.com/ImageMagick/ImageMagick/archive/master.zip`
 	* `unzip master.zip`
 	* `cd ImageMagick-master`
+	* `sudo pkg-config PKG_CONFIG_PATH=~/install/openjpeg-master/build` # make sure system sees the libopenjp2.pc file just created by `config`. To look for the libopenjp2.pc files: `find ~ -type f | grep libopenjp2.pc`
 	* `./configure --enable-shared`
-	* `./configure LDFLAGS=-L/usr/local`
-	* `make`
+	* `sudo make`
 	* `sudo make install`
 	* `sudo make clean`
-	* 
-	
-
----
-
-* Install some additional modules: ` sudo apt-get install graphicsmagick imagemagick`
 
 ### Test your installation
-
-* [Download a test image](https://github.com/harvard-library-imaging-services/images/raw/master/001.tif)
-
+* `mkdir ~/images`
+* `cd ~/images`
+* `wget https://github.com/harvard-library-imaging-services/images/raw/master/001.tif`
 * Run the following commands:
 
   `convert 001.tif 001_via_imagemagick.jp2` # test imagemagick installation
