@@ -25,6 +25,7 @@
 
 * Install imagemagick from source code:
 > Follow the [ImageMagick installation instructions](https://github.com/ImageMagick/ImageMagick/blob/master/Install-unix.txt)
+
 	* `cd ~/install`
 	* `rm master.zip`
 	* `wget https://github.com/ImageMagick/ImageMagick/archive/master.zip`
