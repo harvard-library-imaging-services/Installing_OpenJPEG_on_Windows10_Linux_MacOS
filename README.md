@@ -2,6 +2,12 @@
 
 [OpenJPEG](https://www.openjpeg.org/) is an open-source JPEG 2000 codec written in C. There is no GUI. This command-line tool is easiest to run and maintain via a command-line friendly OS like Linux, so I recommend installing Linux on your Windows 10 machine, taking advantage of W10's [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/) feature.
 
+Below are instructions for compiling OpenJPEG and ImageMagick from source code. It is easier to install pre-compiled versions using **apt**, but I've had issues with prior installations that I resolved by compiling the source code, so that is what I offer. And you don't need to install ImageMagick at all, but it is a very useful utility.
+
+If you'd like to try installing OpenJPEG via the precompiled version first, the following command should do the trick:
+
+`sudo apt install libopenjp2-7 libopenjp2-tools`
+
 ### 1. Install Ubuntu 20.04 LTS
 
 > From the Windows App Store, **download** [Ubuntu](https://www.microsoft.com/en-us/p/ubuntu-2004-lts/9n6svws3rx71?cid=msft_web_chart&activetab=pivot:overviewtab).
