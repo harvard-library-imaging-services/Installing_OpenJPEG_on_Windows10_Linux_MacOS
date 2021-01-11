@@ -54,13 +54,14 @@ If you'd like to try installing OpenJPEG via the precompiled version first, the 
 * `mkdir ~/images`
 * `cd ~/images`
 * `wget https://github.com/harvard-library-imaging-services/images/raw/master/in.tif`
-* Run the following commands:
 
-> Test imagemagick installation
+#### Run the following commands:
+
+> Testing ImageMagick installation
 
 * `convert in.tif out_via_imagemagick.jp2 | exiftool 001_via_imagemagick.jp2 | less`
 
-> Test OpenJPEG installation (lossy compression example)
+> Testing OpenJPEG installation (lossy compression example)
 
 * `opj_compress -i in.tif -o out.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -I -q 42`
 
