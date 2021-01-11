@@ -43,7 +43,7 @@
 * `sudo make install`
 * `sudo make clean`
 
-### Test your installation
+### 4. Test your installation
 
 * `mkdir ~/images`
 * `cd ~/images`
@@ -57,7 +57,9 @@
 > Test OpenJPEG installation (lossy compression example)
 
 * `opj_compress -i 001.tif -o 001.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -I -q 42`
-  
+
+---
+
 ### Encoding JP2 files
 
 * Command: `opj_compress`
