@@ -85,7 +85,7 @@ If you'd like to try installing OpenJPEG via the precompiled version first, the 
 
 ### Lossless example
 
-`opj_compress -i D9_NS.tif -o D9_NS.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2`
+`opj_compress -i in.tif -o out_lossless.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2`
 
 ### Lossy example
 
