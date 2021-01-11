@@ -59,7 +59,7 @@ If you'd like to try installing OpenJPEG via the precompiled version first, the 
 
 > Testing ImageMagick installation
 
-* `convert in.tif out_via_imagemagick.jp2 | exiftool 001_via_imagemagick.jp2 | less`
+* `convert in.tif out_via_imagemagick.jp2 | exiftool out_via_imagemagick.jp2 | less`
 
 > Testing OpenJPEG installation (lossy compression example)
 
