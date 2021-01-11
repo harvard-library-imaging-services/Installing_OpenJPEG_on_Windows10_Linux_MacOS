@@ -47,7 +47,7 @@
 
 * `mkdir ~/images`
 * `cd ~/images`
-* `wget https://github.com/harvard-library-imaging-services/images/raw/master/001.tif`
+* `wget https://github.com/harvard-library-imaging-services/images/raw/master/in.tif`
 * Run the following commands:
 
 > Test imagemagick installation
@@ -56,7 +56,7 @@
 
 > Test OpenJPEG installation (lossy compression example)
 
-* `opj_compress -i 001.tif -o 001.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -I -q 42`
+* `opj_compress -i in.tif -o out.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -I -q 42`
 
 ---
 
@@ -82,8 +82,8 @@
 
 ### Lossy example
 
-* `opj_compress -i D9_NS.tif -o D9_NS.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -I -q 42`
-* `opj_compress -i D9_NS.tif -o D9_NS.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -r 10`
+* `opj_compress -i in.tif -o out_lossy_42db.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -I -q 42`
+* `opj_compress -i in.tif -o out_lossy_r10.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -r 10`
 
 ### [Decompress](http://manpages.ubuntu.com/manpages/cosmic/man1/opj_decompress.1.html): converting JP2 files to other formats
 
