@@ -63,7 +63,7 @@ If you'd like to try installing OpenJPEG via the precompiled version first, the 
 
 > Testing OpenJPEG installation (lossy compression example)
 
-* `opj_compress -i in.tif -o out.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -I -q 42`
+* `opj_compress -i in.tif -o out_lossy_42db.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -I -q 42`
 
 ---
 
