@@ -30,7 +30,9 @@ If you'd like to try installing OpenJPEG via the precompiled version first, the 
 * `mkdir build`
 * `cd build`
 * `cmake .. -DCMAKE_BUILD_TYPE=Release`
-* `./configure --enable-shared`
+* `make`
+* `sudo make install`
+* `sudo make clean`
 		
 ### 3. Install imagemagick from source code:
 
