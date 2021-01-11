@@ -52,7 +52,7 @@
 
 > Test imagemagick installation
 
-* `convert 001.tif 001_via_imagemagick.jp2 | exiftool 001_via_imagemagick.jp2 | less`
+* `convert in.tif out_via_imagemagick.jp2 | exiftool 001_via_imagemagick.jp2 | less`
 
 > Test OpenJPEG installation (lossy compression example)
 
