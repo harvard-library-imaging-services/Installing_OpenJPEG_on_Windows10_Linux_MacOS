@@ -33,7 +33,7 @@ If you'd like to try installing OpenJPEG via the precompiled version first, the 
 * `make`
 * `sudo make install`
 * `sudo make clean`
-		
+
 ### 3. Install imagemagick from source code:
 
 > Follow the [ImageMagick installation instructions](https://github.com/ImageMagick/ImageMagick/blob/master/Install-unix.txt)
@@ -52,7 +52,23 @@ If you'd like to try installing OpenJPEG via the precompiled version first, the 
 * `sudo make install`
 * `sudo make clean`
 
-### 4. Test your installation
+### 4. Install GrokImageCompression
+
+> Follow the [GrokImageCompression installation instructions](https://github.com/GrokImageCompression/grok/blob/master/INSTALL.md)
+
+* `cd ~/install`
+* `rm master.zip`
+* `wget https://github.com/GrokImageCompression/grok/archive/master.zip`
+* `unzip master.zip`
+* `cd grok-master`
+* `mkdir build`
+* `cd build`
+* `cmake -DCMAKE_BUILD_TYPE=Release ..`
+* `make`
+* `sudo make install`
+* `sudo make clean`
+
+### 5. Test your installation
 
 * `mkdir ~/images`
 * `cd ~/images`
