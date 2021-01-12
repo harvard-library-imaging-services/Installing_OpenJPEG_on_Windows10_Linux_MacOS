@@ -10,7 +10,7 @@ If you'd like to try installing OpenJPEG via the precompiled version first, the 
 
 `sudo apt install libopenjp2-7 libopenjp2-tools`
 
-## Why install GrokImageCompression?
+### Why install GrokImageCompression?
 
 The original JPEG 2000 standard only accommodated and color encoding declarations: sGray, sYCC, and sRGB. As color management gained users and a wider variety of color encoding profiles were used and embedded in files as display profiles, the standard was amended ([15444-1annexi.pdf](https://wiki.opf-labs.org/download/attachments/11337762/15444-1annexi.pdf?version=1&modificationDate=1324478641000)) so that embedding ICC profiles would be compliant with the standard.
 
