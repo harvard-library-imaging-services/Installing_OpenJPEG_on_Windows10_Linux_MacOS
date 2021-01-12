@@ -2,11 +2,21 @@
 
 [OpenJPEG](https://www.openjpeg.org/) is an open-source JPEG 2000 codec written in C. There is no GUI. This command-line tool is easiest to run and maintain via a command-line friendly OS like Linux, so I recommend installing Linux on your Windows 10 machine, taking advantage of W10's [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/) feature.
 
-Below are instructions for compiling OpenJPEG and ImageMagick from source code. It is easier to install pre-compiled versions using **apt**, but I've had issues with prior installations that I resolved by compiling the source code, so that is what I recommend. And you don't need to install ImageMagick at all, but it is a very useful utility.
+Below are instructions for compiling OpenJPEG, ImageMagick, and GrokImageCompression from source code.
+
+It is easier to install OpenJPEG and ImageMagick via pre-compiled versions using **apt**, but I've had issues with prior installations that I resolved by compiling the source code, so that is what I recommend. And you don't need to install ImageMagick at all, but it is a very useful utility.
 
 If you'd like to try installing OpenJPEG via the precompiled version first, the following command should do the trick:
 
 `sudo apt install libopenjp2-7 libopenjp2-tools`
+
+#### Why install GrokImageCompression?
+
+The original JPEG 2000 standard only accommodated and color encoding declarations: sGray, sYCC, and sRGB. As color management gained users and a wider variety of color encoding profiles were used and embedded in files as display profiles, the standard was amended ([15444-1annexi.pdf](https://wiki.opf-labs.org/download/attachments/11337762/15444-1annexi.pdf?version=1&modificationDate=1324478641000)) so that embedding ICC profiles would be compliant with the standard.
+
+As of the openjp2 library v2.3.1., OpenJPEG does not carry over the display profile embedded within the source image. OpenJPEG does convert the colorspace of input files to produce an sRGB JP2 output file.
+
+[GrokImageCompression](https://grokimagecompression.github.io/grok/) is an open-source JP2 encoder based on the OpenJPEG code that successfully generates JP2 images encoded with the same colorspace (and ICC display profile) found in the source image.
 
 ### 1. Install Ubuntu 20.04 LTS
 
@@ -84,11 +94,19 @@ If you'd like to try installing OpenJPEG via the precompiled version first, the 
 
 * `opj_compress -i in.tif -o out_lossy_42db.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -I -q 42`
 
+> Testing GrokImageCompression installation (lossy compression example)
+
+* `grk_compress -i in.tif -o grk_out_lossy_42db.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -I -q 42`
+
+> Are the JP2 files you created standard-compliant?
+
+* `jpylyzer *.jp2 | grep '<isValid format="jp2">True</isValid>'`
+
 ---
 
 ### Encoding JP2 files
 
-* Command: `opj_compress`
+* Command: `opj_compress` and `grk_compress`
 * Switches:
 	* `-i <inputFile.ext>`
 	*  `-p RLCP` (progression order)
@@ -106,18 +124,32 @@ If you'd like to try installing OpenJPEG via the precompiled version first, the 
 
 `opj_compress -i in.tif -o out_lossless.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2`
 
+`grk_compress -i in.tif -o grk_out_lossless.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2`
+
 ### Lossy example
 
 * `opj_compress -i in.tif -o out_lossy_42db.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -I -q 42`
 * `opj_compress -i in.tif -o out_lossy_r10.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -r 10`
+
+---
+
+* `grk_compress -i in.tif -o grk_out_lossy_42db.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -I -q 42`
+* `grk_compress -i in.tif -o grk_out_lossy_r10.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -r 10`
 
 ### [Decompress](http://manpages.ubuntu.com/manpages/cosmic/man1/opj_decompress.1.html): converting JP2 files to other formats
 
 * `opj_decompress -i infile.j2k -o outfile.png`
 
 * `opj_decompress -ImgDir images/ -OutFor tif`
+
+---
+
+* `grk_decompress -i infile.j2k -o outfile.png`
+
+* `grk_decompress -ImgDir images/ -OutFor tif`
   
-  ---
+  
+---
   
   end
   
