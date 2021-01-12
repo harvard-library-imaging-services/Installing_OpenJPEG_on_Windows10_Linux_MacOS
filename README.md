@@ -1,4 +1,4 @@
-## Installing OpenJPEG on Windows 10
+# Installing OpenJPEG on Windows 10
 
 [OpenJPEG](https://www.openjpeg.org/) is an open-source JPEG 2000 codec written in C. There is no GUI. This command-line tool is easiest to run and maintain via a command-line friendly OS like Linux, so I recommend installing Linux on your Windows 10 machine, taking advantage of W10's [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/) feature.
 
@@ -10,7 +10,7 @@ If you'd like to try installing OpenJPEG via the precompiled version first, the 
 
 `sudo apt install libopenjp2-7 libopenjp2-tools`
 
-#### Why install GrokImageCompression?
+## Why install GrokImageCompression?
 
 The original JPEG 2000 standard only accommodated and color encoding declarations: sGray, sYCC, and sRGB. As color management gained users and a wider variety of color encoding profiles were used and embedded in files as display profiles, the standard was amended ([15444-1annexi.pdf](https://wiki.opf-labs.org/download/attachments/11337762/15444-1annexi.pdf?version=1&modificationDate=1324478641000)) so that embedding ICC profiles would be compliant with the standard.
 
@@ -18,7 +18,7 @@ As of the openjp2 library v2.3.1., OpenJPEG does not carry over the display prof
 
 [GrokImageCompression](https://grokimagecompression.github.io/grok/) is an open-source JP2 encoder based on the OpenJPEG code that successfully generates JP2 images encoded with the same colorspace (and ICC display profile) found in the source image.
 
-### 1. Install Ubuntu 20.04 LTS
+## 1. Install Ubuntu 20.04 LTS
 
 > From the Windows App Store, **download** [Ubuntu](https://www.microsoft.com/en-us/p/ubuntu-2004-lts/9n6svws3rx71?cid=msft_web_chart&activetab=pivot:overviewtab).
 
@@ -28,7 +28,7 @@ As of the openjp2 library v2.3.1., OpenJPEG does not carry over the display prof
 
 * Install some additional software modules: `sudo apt-get install pkg-config emacs-nox python3-jpylyzer libltdl-dev libopenjp2-7-dev libtiff-tools exiftool git git-lfs cmake liblcms2-dev libtiff-dev libpng-dev libz-dev unzip libzstd-dev libwebp-dev build-essential g++`.
 
-### 2. Install OpenJPEG by compiling the source code:
+## 2. Install OpenJPEG by compiling the source code:
 * `mkdir ~/install`
 * `cd ~/install`
 * Download the source code: `wget https://github.com/uclouvain/openjpeg/archive/master.zip`
@@ -44,7 +44,7 @@ As of the openjp2 library v2.3.1., OpenJPEG does not carry over the display prof
 * `sudo make install`
 * `sudo make clean`
 
-### 3. Install imagemagick from source code:
+## 3. Install imagemagick from source code:
 
 > Follow the [ImageMagick installation instructions](https://github.com/ImageMagick/ImageMagick/blob/master/Install-unix.txt)
 
@@ -62,7 +62,7 @@ As of the openjp2 library v2.3.1., OpenJPEG does not carry over the display prof
 * `sudo make install`
 * `sudo make clean`
 
-### 4. Install GrokImageCompression
+## 4. Install GrokImageCompression
 
 > Follow the [GrokImageCompression installation instructions](https://github.com/GrokImageCompression/grok/blob/master/INSTALL.md)
 
@@ -78,13 +78,13 @@ As of the openjp2 library v2.3.1., OpenJPEG does not carry over the display prof
 * `sudo make install`
 * `sudo make clean`
 
-### 5. Test your installation
+## 5. Test your installation
 
 * `mkdir ~/images`
 * `cd ~/images`
 * `wget https://github.com/harvard-library-imaging-services/images/raw/master/in.tif`
 
-#### Run the following commands:
+### Run the following commands:
 
 > Testing ImageMagick installation
 
