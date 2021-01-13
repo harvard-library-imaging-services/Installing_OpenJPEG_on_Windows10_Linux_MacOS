@@ -12,11 +12,11 @@ While it is easier to install OpenJPEG and ImageMagick via pre-compiled versions
 
 ### Why install GrokImageCompression?
 
-The original JPEG 2000 standard only accommodated three color encoding declarations: sGray, sYCC, and sRGB. As color management gained popularity, and a wider variety of color encoding display profiles were being embedded in images, the standard was amended ([15444-1annexi.pdf](https://wiki.opf-labs.org/download/attachments/11337762/15444-1annexi.pdf?version=1&modificationDate=1324478641000)) so accommodate the use of restricted ICC profiles .
+The original JPEG 2000 standard only accommodated three color encoding declarations: sGray, sYCC, and sRGB. As color management gained popularity and a wider variety of [ICC](https://en.wikipedia.org/wiki/ICC_profile) display profiles were being embedded in images, the standard was amended in 2004 ([15444-1annexi.pdf](https://wiki.opf-labs.org/download/attachments/11337762/15444-1annexi.pdf?version=1&modificationDate=1324478641000)) to accommodate the use of restricted ICC profiles.
 
-As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the display profiles embedded within the source image, but instead converts the image colorspace to sRGB on output.
+As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC display profiles embedded within the source image, but instead converts any color encoding to sRGB on output.
 
-[GrokImageCompression](https://grokimagecompression.github.io/grok/) is an open-source JP2 encoder based on the OpenJPEG code that successfully generates JP2 images encoded with the same colorspace (and ICC display profile) found in the source image.
+[GrokImageCompression](https://grokimagecompression.github.io/grok/) is an open-source JP2 encoder based on the OpenJPEG code that produces JP2 images encoded with the same colorspace -- includes the same ICC display profile -- resident in the source image.
 
 ## 1. Install Ubuntu 20.04 LTS
 
