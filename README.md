@@ -18,6 +18,8 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 
 [GrokImageCompression](https://grokimagecompression.github.io/grok/) is an open-source JP2 encoder based on the OpenJPEG code that produces JP2 images encoded with the same colorspace -- includes the same ICC display profile -- resident in the source image.
 
+> Want to run Grok Image Compression on a Mac? It can be installed via [Homebrew](https://brew.sh/) with the terminal command: `brew install grokj2k`
+
 ## 1. Install Ubuntu 20.04 LTS
 
 > From the Windows App Store, **download** [Ubuntu](https://www.microsoft.com/en-us/p/ubuntu-2004-lts/9n6svws3rx71?cid=msft_web_chart&activetab=pivot:overviewtab).
