@@ -119,8 +119,8 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 	*  `-OutFor <ext>` (extension for output files)
 	*  `-o <outputFile.ext>`
 	*  `-I` (specifies lossy encoding)
-	*  `-q <quality in dB>,<quality in dB>,...`
-	*  `-r <compression ratio>,<compression ratio>,...`
+	*  `-q <quality in db>`
+	*  `-r <compression ratio>`
 
 ### Lossless example
 
