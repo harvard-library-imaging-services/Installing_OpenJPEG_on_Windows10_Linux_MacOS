@@ -46,7 +46,7 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 * `sudo make install`
 * `sudo make clean`
 
-## 3. Install imagemagick from source code:
+## 3. Install ImageMagick from source code:
 
 > Follow the [ImageMagick installation instructions](https://github.com/ImageMagick/ImageMagick/blob/master/Install-unix.txt)
 
