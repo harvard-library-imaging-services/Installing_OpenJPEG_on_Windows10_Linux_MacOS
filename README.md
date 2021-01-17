@@ -41,7 +41,7 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 * `cd openjpeg-master/`
 * `mkdir build`
 * `cd build`
-* `cmake .. -DCMAKE_BUILD_TYPE=Release`
+* `cmake -DCMAKE_BUILD_TYPE=Release ..`
 * `make`
 * `sudo make install`
 * `sudo make clean`
