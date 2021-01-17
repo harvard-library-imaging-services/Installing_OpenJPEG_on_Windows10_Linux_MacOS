@@ -77,7 +77,7 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 * `cd build`
 * `cmake -DCMAKE_BUILD_TYPE=Release ..`
 * `make`
-* > To maximize processing speed, you may specify the number with the command: `make -j[number of cores]`. To find the number of cores, run `hwinfo --short`.
+> To maximize processing speed, you may specify the number with the command: `make -j[number of cores]`. To find the number of cores, run `hwinfo --short`.
 * `sudo make install`
 * `sudo make clean`
 
