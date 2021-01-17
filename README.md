@@ -28,7 +28,7 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 
 * Update the installation by running the following command: `sudo apt-get update ; sudo apt-get upgrade -y`
 
-* Install some additional software modules: `sudo apt-get install pkg-config emacs-nox python3-jpylyzer libltdl-dev libtiff-tools exiftool git git-lfs cmake liblcms2-dev libtiff-dev libpng-dev libz-dev unzip libzstd-dev libwebp-dev build-essential python-pip`.
+* Install some additional software modules: `sudo apt-get install pkg-config emacs-nox python3-jpylyzer libltdl-dev libtiff-tools exiftool git git-lfs cmake liblcms2-dev libtiff-dev libpng-dev libz-dev unzip libzstd-dev libwebp-dev build-essential python-pip hwinfo`.
 
 ## 2. Install OpenJPEG by compiling the source code:
 * `mkdir ~/install`
