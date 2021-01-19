@@ -76,10 +76,10 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 * `mkdir build`
 * `cd build`
 * `cmake -DCMAKE_BUILD_TYPE=Release ..`
-* `make`
 
 > To maximize processing speed, you may specify the number of processing *cores* Grok should use with the command: `make -j[number of cores]`. To find the machine's cores count, run `hwinfo --short`.
 
+* `make`
 * `sudo make install`
 * `sudo make clean`
 
