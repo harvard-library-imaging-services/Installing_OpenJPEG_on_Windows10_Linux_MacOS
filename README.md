@@ -91,6 +91,8 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 
 ### Run the following commands:
 
+* `sudo ldconfig`
+
 > Testing ImageMagick installation
 
 * `convert in.tif out_via_imagemagick.jp2 | exiftool out_via_imagemagick.jp2 | less`
