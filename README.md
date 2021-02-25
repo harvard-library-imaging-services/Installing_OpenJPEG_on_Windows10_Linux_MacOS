@@ -7,7 +7,7 @@ Below are instructions for compiling **OpenJPEG**, **ImageMagic**k, and **GrokIm
 While it is easier to install OpenJPEG and ImageMagick via pre-compiled versions using **[apt](https://en.wikipedia.org/wiki/APT_(software))**, I've had issues with prior installations that I resolved by compiling the source code, so that is what I recommend. Note that you do not need to install ImageMagick at all, but it is a very useful utility.
 
 > If you'd like to try installing OpenJPEG via the precompiled version first, the following command should do the trick:
-> 
+>
 > `sudo apt install libopenjp2-7 libopenjp2-tools`
 
 ### Why install GrokImageCompression?
@@ -154,7 +154,7 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 * `grk_decompress -i infile.j2k -o outfile.png`
 
 * `grk_decompress -ImgDir images/ -OutFor tif`
-  
+
 ---
 
 ### Shell scripts
@@ -169,17 +169,17 @@ find . -type f | grep --extended-regexp ".*\.tif$" | sed -E "s/.tif//g" > tiffNa
 ls -1 *.tif | wc -l | xargs echo "TIFF count: "
 while read line
 do
-#    grk_compress -i $line".tif" -o $line".jp2" -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2                            
+#    grk_compress -i $line".tif" -o $line".jp2" -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2
     grk_compress -i $line".tif" -o $line"_lossless.jp2" -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2
     echo "converting "$line".tif"
 done < tiffNameStem.txt
-echo "                                                                                                                
-     ~~~ FIN ~~~                                                                                                      
+echo "
+     ~~~ FIN ~~~
 "
 ls -1 *.jp2 | wc -l | xargs echo "JP2 count: "
 
 ```
-	
+
 #### Lossy compression
 
 ```
@@ -190,18 +190,6 @@ find . -type f | grep --extended-regexp ".*\.tif$" | sed -E "s/.tif//g" > tiffNa
 ls -1 *.tif | wc -l | xargs echo "TIFF count: "
 while read line
 do
-#    grk_compress -i $line".tif" -o $line".jp2" -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -I -q 42                   
+#    grk_compress -i $line".tif" -o $line".jp2" -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -I -q 42
     grk_compress -i $line".tif" -o $line"_lossy.jp2" -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -I -q 42
-    echo "converting "$line".tif"
-done < tiffNameStem.txt
-echo "                                                                                                                
-     ~~~ FIN ~~~                                                                                                      
-"
-ls -1 *.jp2 | wc -l | xargs echo "JP2 count: "
-```
-
----
-  
-  end
-  
-  
+    echo "conv
