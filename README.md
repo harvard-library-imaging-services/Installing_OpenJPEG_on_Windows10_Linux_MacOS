@@ -99,11 +99,11 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 
 > Testing OpenJPEG installation (lossy compression example)
 
-* `opj_compress -i in.tif -o out_lossy_42db.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -I -q 42`
+* `opj_compress -i in.tif -o out_lossy_42db.jp2 -p RLCP -t 1024,1024 -EPH -SOP -I -q 42`
 
 > Testing GrokImageCompression installation (lossy compression example)
 
-* `grk_compress -i in.tif -o grk_out_lossy_42db.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -I -q 42`
+* `grk_compress -i in.tif -o grk_out_lossy_42db.jp2 -p RLCP -t 1024,1024 -EPH -SOP -I -q 42`
 
 > Are the JP2 files you created standard-compliant?
 
@@ -129,19 +129,19 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 
 ### Lossless example
 
-* `opj_compress -i in.tif -o out_lossless.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2`
+* `opj_compress -i in.tif -o out_lossless.jp2 -p RLCP -t 1024,1024 -EPH -SOP`
 
-* `grk_compress -i in.tif -o grk_out_lossless.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2`
+* `grk_compress -i in.tif -o grk_out_lossless.jp2 -p RLCP -t 1024,1024 -EPH -SOP`
 
 ### Lossy example
 
-* `opj_compress -i in.tif -o out_lossy_42db.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -I -q 42`
-* `opj_compress -i in.tif -o out_lossy_r10.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -r 10`
+* `opj_compress -i in.tif -o out_lossy_42db.jp2 -p RLCP -t 1024,1024 -EPH -SOP -I -q 42`
+* `opj_compress -i in.tif -o out_lossy_r10.jp2 -p RLCP -t 1024,1024 -EPH -SOP -r 10`
 
 ---
 
-* `grk_compress -i in.tif -o grk_out_lossy_42db.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -I -q 42`
-* `grk_compress -i in.tif -o grk_out_lossy_r10.jp2 -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -r 10`
+* `grk_compress -i in.tif -o grk_out_lossy_42db.jp2 -p RLCP -t 1024,1024 -EPH -SOP -I -q 42`
+* `grk_compress -i in.tif -o grk_out_lossy_r10.jp2 -p RLCP -t 1024,1024 -EPH -SOP -r 10`
 
 ### [Decompress](http://manpages.ubuntu.com/manpages/cosmic/man1/opj_decompress.1.html): converting JP2 files to other formats
 
@@ -169,8 +169,8 @@ find . -type f | grep --extended-regexp ".*\.tif$" | sed -E "s/.tif//g" > tiffNa
 ls -1 *.tif | wc -l | xargs echo "TIFF count: "
 while read line
 do
-#    grk_compress -i $line".tif" -o $line".jp2" -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2
-    grk_compress -i $line".tif" -o $line"_lossless.jp2" -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2
+#    grk_compress -i $line".tif" -o $line".jp2" -p RLCP -t 1024,1024 -EPH -SOP
+    grk_compress -i $line".tif" -o $line"_lossless.jp2" -p RLCP -t 1024,1024 -EPH -SOP
     echo "converting "$line".tif"
 done < tiffNameStem.txt
 echo "
@@ -190,6 +190,16 @@ find . -type f | grep --extended-regexp ".*\.tif$" | sed -E "s/.tif//g" > tiffNa
 ls -1 *.tif | wc -l | xargs echo "TIFF count: "
 while read line
 do
-#    grk_compress -i $line".tif" -o $line".jp2" -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -I -q 42
-    grk_compress -i $line".tif" -o $line"_lossy.jp2" -p RLCP -t 1024,1024 -EPH -SOP -OutFor jp2 -I -q 42
-    echo "conv
+#    grk_compress -i $line".tif" -o $line".jp2" -p RLCP -t 1024,1024 -EPH -SOP -I -q 42
+    grk_compress -i $line".tif" -o $line"_lossy.jp2" -p RLCP -t 1024,1024 -EPH -SOP -I -q 42
+    echo "converting "$line".tif"
+done < tiffNameStem.txt
+echo "
+     ~~~ FIN ~~~
+"
+ls -1 *.jp2 | wc -l | xargs echo "JP2 count: "
+```
+
+---
+
+  end
