@@ -28,7 +28,7 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 
 * Update the installation by running the following command: `sudo apt-get update ; sudo apt-get upgrade -y`
 
-* Install some additional software modules: `sudo apt-get install pkg-config emacs-nox libltdl-dev libtiff-tools exiftool git git-lfs cmake liblcms2-dev libtiff-dev libpng-dev libz-dev unzip libzstd-dev libwebp-dev build-essential hwinfo ; sudo python get-pip.py ; sudo apt-get install python3-jpylyzer`.
+* Install some additional software modules: `sudo apt-get install pkg-config valgrind emacs-nox libltdl-dev libtiff-tools exiftool git git-lfs cmake liblcms2-dev libtiff-dev libpng-dev libz-dev unzip libzstd-dev libwebp-dev build-essential hwinfo ; sudo python get-pip.py ; sudo apt-get install python3-jpylyzer`.
 
 ## 2. Install OpenJPEG by compiling the source code:
 * `mkdir ~/install`
@@ -53,8 +53,8 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 * `cd ~/install`
 * `rm master.zip`
 * `wget https://github.com/ImageMagick/ImageMagick/archive/refs/heads/main.zip`
-* `unzip master.zip`
-* `cd ImageMagick-master`
+* `unzip main.zip`
+* `cd ImageMagick-main`
 
 > Make sure system sees the libopenjp2.pc file just created by `config`. To look for the libopenjp2.pc files: `find ~ -type f | grep libopenjp2.pc`
 
@@ -64,12 +64,12 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 * `sudo make install`
 * `sudo make clean`
 
-## 4. Install GrokImageCompression
+## 4. Install GrokImageCompression [not working as of 4 JUN 2021]
 
 > Follow the [GrokImageCompression installation instructions](https://github.com/GrokImageCompression/grok/blob/master/INSTALL.md)
 
 * `cd ~/install`
-* `rm master.zip`
+* `rm main.zip`
 * `wget https://github.com/GrokImageCompression/grok/archive/master.zip`
 * `unzip master.zip`
 * `cd grok-master`
