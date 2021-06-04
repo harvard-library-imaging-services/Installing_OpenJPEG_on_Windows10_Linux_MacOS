@@ -52,7 +52,7 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 
 * `cd ~/install`
 * `rm master.zip`
-* `wget https://github.com/ImageMagick/ImageMagick/archive/master.zip`
+* `wget https://github.com/ImageMagick/ImageMagick/archive/refs/heads/main.zip`
 * `unzip master.zip`
 * `cd ImageMagick-master`
 
