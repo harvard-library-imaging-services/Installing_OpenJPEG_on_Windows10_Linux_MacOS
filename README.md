@@ -16,9 +16,7 @@ The original JPEG 2000 standard only accommodated three color encoding declarati
 
 As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC display profiles embedded within the source image, but instead converts any color encoding to sRGB on output.
 
-> Example showing how to perform an ICC profile-to-profile conversion using ImageMagick.
-
-<script src="https://gist.github.com/comstock/73b4d456f725e3636b79da38dbb6d9df.js"></script>
+> * [Example showing how to perform an ICC profile-to-profile conversion using ImageMagick](https://gist.github.com/comstock/73b4d456f725e3636b79da38dbb6d9df#example-showing-how-to-perform-an-icc-profile-to-profile-conversion-using-imagemagick).
 
 [GrokImageCompression](https://grokimagecompression.github.io/grok/) is an open-source JP2 encoder based on the OpenJPEG code that produces JP2 images encoded with the same colorspace -- includes the same ICC display profile -- resident in the source image.
 
