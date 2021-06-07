@@ -1,4 +1,4 @@
-# Installing OpenJPEG on Windows 10
+# Installing OpenJPEG on Windows 10, Linux, and MacOS
 
 [OpenJPEG](https://www.openjpeg.org/) is an open-source JPEG 2000 codec written in C. There is no GUI. This command-line tool is easy to run and maintain using a command-line friendly OS like Linux, so I recommend installing Linux on your Windows 10 machine, taking advantage of W10's [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/) feature.
 
@@ -66,7 +66,9 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 * `sudo make install`
 * `sudo make clean`
 
-## 4. Install GrokImageCompression [not working as of 4 JUN 2021]
+## 4. Install GrokImageCompression
+
+[*<mark> As of June 2021, these Grok installation instructions are failing.</mark>*]
 
 > Follow the [GrokImageCompression installation instructions](https://github.com/GrokImageCompression/grok/blob/master/INSTALL.md)
 
