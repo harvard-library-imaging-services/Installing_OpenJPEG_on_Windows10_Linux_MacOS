@@ -91,7 +91,7 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 
 * `mkdir ~/images`
 * `cd ~/images`
-* `wget https://github.com/harvard-library-imaging-services/images/raw/master/in.tif`
+* `wget -O in.tif https://storage.googleapis.com/linked_content/icc/ICC_profile_test_image_Farbkreis_120grad.tif`
 
 ### Run the following commands:
 
