@@ -2,7 +2,7 @@
 
 [OpenJPEG](https://www.openjpeg.org/) is an open-source JPEG 2000 codec written in C. There is no GUI. This command-line tool is easy to run and maintain using a command-line friendly OS like Linux, so I recommend installing Linux on your Windows 10 machine, taking advantage of W10's [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/) feature.
 
-Below are instructions for compiling **OpenJPEG**, **ImageMagic**k, and **GrokImageCompression** from source code.
+Below are instructions for compiling **OpenJPEG**, **ImageMagick**, and **GrokImageCompression** from source code.
 
 While it is easier to install OpenJPEG and ImageMagick via pre-compiled versions using **[apt](https://en.wikipedia.org/wiki/APT_(software))**, I've had issues with prior installations that I resolved by compiling the source code, so that is what I recommend. Note that you do not need to install ImageMagick at all, but it is a very useful utility.
 
@@ -68,7 +68,7 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 
 ## 4. Install GrokImageCompression
 
-[*<mark> As of June 2021, these Grok installation instructions are failing.</mark>*]
+[*<mark>The installation can be fussy. It requires very recent versions of cmake and gcc, and even after installing these you may need to trigger their use by using the `update-alternatives` [command](https://linuxconfig.org/how-to-switch-between-multiple-gcc-and-g-compiler-versions-on-ubuntu-20-04-lts-focal-fossa).</mark>*]
 
 > Follow the [GrokImageCompression installation instructions](https://github.com/GrokImageCompression/grok/blob/master/INSTALL.md)
 
@@ -130,12 +130,51 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 	*  `-I` (specifies lossy encoding)
 	*  `-q <quality in db>`
 	*  `-r <compression ratio>`
+	*  `-OutFor [J2K|J2C|JP2]`
+
+    > Output format used to compress the images read from the directory specified with`-ImgDir`. Required when`-ImgDir`option is used. Supported formats are`J2K`,`J2C`, and`JP2`.
+    * `-InFor [pbm|pgm|ppm|pnm|pam|pgx|png|bmp|tif|raw|rawl|jpg]`
+
+     > Input format. Will override file tag.
+
+#### Selected Grok-specific switches
+(See: [Options](https://github.com/GrokImageCompression/grok/wiki/3.-grk_compress#options) for complete list)
+
+* `-TransferExifTags`
+
+> Transfer all Exif tags to output file. Note: [ExifTool](https://exiftool.org/) must be installed for this command line argument to function correctly.
+
+* `-logfile [output file name]`
+
+> Log to file. File name will be set to`output file name`
+
+* `-num_threads [number of threads]`
+
+> Number of threads used for T1 compression. Default is total number of logical cores.
+
+* `-Comment [comment]`
+
+> Add `<comment>` in comment marker segment(s). Multiple comments (up to a total of 256) can be specified, separated by the `|` character. For example: `-C "This is my first comment|This is my second` will store `This is my first comment` in the first comment marker segment, and `This is my second` in a second comment marker.
+
+* `-e, -Repetitions [number of repetitions]` <mark>No idea what this is but am working to find out.</mark>
+
+> Number of repetitions, for either a single image, or a folder of images. Default value is `1`. Unlimited repetitions are specified by a value of `0`.
+
+* `-Q, -CaptureRes [capture resolution X,capture resolution Y]`
+
+> Capture resolution in pixels/metre, in double precision.
+
+> * If the input image has a resolution stored in its header, then this resolution will be set as the capture resolution, by default.
+> * If the`-Q` command line parameter is set, then it will override the resolution stored in the input image, if present.
+> * The special values `[0,0]` for `-Q` will force the encoder to **not** store capture resolution, even if present in input image.
+
+#### [](https://github.com/GrokImageCompression/grok/wiki/3.-grk_compress#-g--pluginpath-plugin-path)
 
 ### Lossless example
 
 * `opj_compress -i in.tif -o out_lossless.jp2 -p RLCP -t 1024,1024 -EPH -SOP`
 
-* `grk_compress -i in.tif -o grk_out_lossless.jp2 -p RLCP -t 1024,1024 -EPH -SOP`
+* `grk_compress -TransferExifTags -i in.tif -o grk_out_lossless.jp2 -p RLCP -t 1024,1024 -EPH -SOP`
 
 ### Lossy example
 
@@ -144,8 +183,8 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 
 ---
 
-* `grk_compress -i in.tif -o grk_out_lossy_42db.jp2 -p RLCP -t 1024,1024 -EPH -SOP -I -q 42`
-* `grk_compress -i in.tif -o grk_out_lossy_r10.jp2 -p RLCP -t 1024,1024 -EPH -SOP -r 10`
+* `grk_compress -TransferExifTags -i in.tif -o grk_out_lossy_42db.jp2 -p RLCP -t 1024,1024 -EPH -SOP -I -q 42`
+* `grk_compress -TransferExifTags -i in.tif -o grk_out_lossy_r10.jp2 -p RLCP -t 1024,1024 -EPH -SOP -r 10`
 
 ### [Decompress](http://manpages.ubuntu.com/manpages/cosmic/man1/opj_decompress.1.html): converting JP2 files to other formats
 
@@ -159,7 +198,14 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 
 * `grk_decompress -ImgDir images/ -OutFor tif`
 
----
+—
+
+### Encoding entire directories
+
+* `opj_compress -ImgDir /images/in  -p RLCP -t 1024,1024 -EPH -SOP -OutDir /images/out`
+
+
+* `grk_compress  --TransferExifTags -ImgDir /images/in -p RLCP -t 1024,1024 -EPH -SOP -OutDir /images/out`
 
 ### Shell scripts
 
@@ -188,13 +234,13 @@ ls -1 *.jp2 | wc -l | xargs echo "JP2 count: "
 
 ```
 #!/bin/bash
-# Grok Image Compression JP2 JPEG2000 codec encoder lossy compression
-# https://github.com/GrokImageCompression/grok
+#Grok Image Compression JP2 JPEG2000 codec encoder lossy compression
+#https://github.com/GrokImageCompression/grok
 find . -type f | grep --extended-regexp ".*\.tif$" | sed -E "s/.tif//g" > tiffNameStem.txt
 ls -1 *.tif | wc -l | xargs echo "TIFF count: "
 while read line
 do
-#    grk_compress -i $line".tif" -o $line".jp2" -p RLCP -t 1024,1024 -EPH -SOP -I -q 42
+#grk_compress -i $line".tif" -o $line".jp2" -p RLCP -t 1024,1024 -EPH -SOP -I -q 42
     grk_compress -i $line".tif" -o $line"_lossy.jp2" -p RLCP -t 1024,1024 -EPH -SOP -I -q 42
     echo "converting "$line".tif"
 done < tiffNameStem.txt
