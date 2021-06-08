@@ -68,7 +68,7 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 
 ## 4. Install GrokImageCompression
 
-[*<mark>The installation can be fussy. It requires very recent versions of cmake and gcc, and even after installing these you may need to trigger their use by using the `update-alternatives` [command](https://linuxconfig.org/how-to-switch-between-multiple-gcc-and-g-compiler-versions-on-ubuntu-20-04-lts-focal-fossa).</mark>*]
+[*<mark>The installation can be fussy. It requires very recent versions of cmake and gcc, and even after installing these you may need to trigger their use by using the [`update-alternatives` command](https://linuxconfig.org/how-to-switch-between-multiple-gcc-and-g-compiler-versions-on-ubuntu-20-04-lts-focal-fossa).</mark>*]
 
 > Follow the [GrokImageCompression installation instructions](https://github.com/GrokImageCompression/grok/blob/master/INSTALL.md)
 
@@ -137,7 +137,7 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 
      > Input format. Will override file tag.
 
-#### Selected Grok-specific switches
+### Selected Grok-specific switches
 (See: [Options](https://github.com/GrokImageCompression/grok/wiki/3.-grk_compress#options) for complete list)
 
 * `-TransferExifTags`
@@ -156,10 +156,6 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 
 > Add `<comment>` in comment marker segment(s). Multiple comments (up to a total of 256) can be specified, separated by the `|` character. For example: `-C "This is my first comment|This is my second` will store `This is my first comment` in the first comment marker segment, and `This is my second` in a second comment marker.
 
-* `-e, -Repetitions [number of repetitions]` <mark>No idea what this is but am working to find out.</mark>
-
-> Number of repetitions, for either a single image, or a folder of images. Default value is `1`. Unlimited repetitions are specified by a value of `0`.
-
 * `-Q, -CaptureRes [capture resolution X,capture resolution Y]`
 
 > Capture resolution in pixels/metre, in double precision.
@@ -167,8 +163,6 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 > * If the input image has a resolution stored in its header, then this resolution will be set as the capture resolution, by default.
 > * If the`-Q` command line parameter is set, then it will override the resolution stored in the input image, if present.
 > * The special values `[0,0]` for `-Q` will force the encoder to **not** store capture resolution, even if present in input image.
-
-#### [](https://github.com/GrokImageCompression/grok/wiki/3.-grk_compress#-g--pluginpath-plugin-path)
 
 ### Lossless example
 
@@ -202,10 +196,10 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 
 ### Encoding entire directories
 
-* `opj_compress -ImgDir /images/in  -p RLCP -t 1024,1024 -EPH -SOP -OutDir /images/out`
+* `opj_compress -OutFor jp2 -ImgDir /images/in  -p RLCP -t 1024,1024 -EPH -SOP -OutDir /images/out`
 
 
-* `grk_compress  --TransferExifTags -ImgDir /images/in -p RLCP -t 1024,1024 -EPH -SOP -OutDir /images/out`
+* `grk_compress -OutFor jp2 -TransferExifTags -ImgDir /images/in -p RLCP -t 1024,1024 -EPH -SOP -OutDir /images/out`
 
 ### Shell scripts
 
