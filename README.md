@@ -18,7 +18,7 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 
 > * [Example showing how to perform an ICC profile-to-profile conversion using ImageMagick](https://gist.github.com/comstock/73b4d456f725e3636b79da38dbb6d9df#example-showing-how-to-perform-an-icc-profile-to-profile-conversion-using-imagemagick).
 
-[GrokImageCompression](https://grokimagecompression.github.io/grok/) is an open-source JP2 encoder based on the OpenJPEG code that produces JP2 images encoded with the same colorspace -- includes the same ICC display profile -- resident in the source image.
+[GrokImageCompression](https://github.com/GrokImageCompression/grok) is an open-source JP2 encoder based on the OpenJPEG code that produces JP2 images encoded with the same colorspace -- includes the same ICC display profile -- resident in the source image.
 
 > **Want to run Grok Image Compression on a Mac?** It can be installed via [Homebrew](https://brew.sh/) with the terminal command: `brew install grokj2k`
 
@@ -74,7 +74,7 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 
 * `cd ~/install`
 * `rm main.zip`
-* `wget https://github.com/GrokImageCompression/grok/archive/master.zip`
+* `wget https://github.com/GrokImageCompression/grok/archive/refs/heads/master.zip`
 * `unzip master.zip`
 * `cd grok-master`
 * `mkdir build`
@@ -180,7 +180,7 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 * `grk_compress -TransferExifTags -i in.tif -o grk_out_lossy_42db.jp2 -p RLCP -t 1024,1024 -EPH -SOP -I -q 42`
 * `grk_compress -TransferExifTags -i in.tif -o grk_out_lossy_r10.jp2 -p RLCP -t 1024,1024 -EPH -SOP -r 10`
 
-### [Decompress](http://manpages.ubuntu.com/manpages/cosmic/man1/opj_decompress.1.html): converting JP2 files to other formats
+### [Decompress](https://man.archlinux.org/man/extra/openjpeg2/opj_decompress.1.en): converting JP2 files to other formats
 
 * `opj_decompress -i infile.j2k -o outfile.png`
 
