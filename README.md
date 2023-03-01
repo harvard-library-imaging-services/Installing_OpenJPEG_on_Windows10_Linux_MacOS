@@ -1,3 +1,4 @@
+
 # Installing OpenJPEG on Windows 10, Linux, and MacOS
 
 [OpenJPEG](https://www.openjpeg.org/) is an open-source JPEG 2000 codec written in C. There is no GUI. This command-line tool is easy to run and maintain using a command-line friendly OS like Linux, so I recommend installing Linux on your Windows 10 machine, taking advantage of W10's [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/) feature.
@@ -68,24 +69,11 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 
 ## 4. Install GrokImageCompression
 
-[*<mark>The installation can be fussy. It requires very recent versions of cmake and gcc, and even after installing these you may need to trigger their use by using the [`update-alternatives` command](https://linuxconfig.org/how-to-switch-between-multiple-gcc-and-g-compiler-versions-on-ubuntu-20-04-lts-focal-fossa).</mark>*]
+The process of compiling *Grok* is so fussy, that I, as of March 2023, recommend:
 
-> Follow the [GrokImageCompression installation instructions](https://github.com/GrokImageCompression/grok/blob/master/INSTALL.md)
+1. [Install Homebrew](https://brew.sh/) on your Linux or Mac OS instance;
+2. Install [grokj2k](https://formulae.brew.sh/formula/grokj2k#default): `brew install grokj2k`
 
-* `cd ~/install`
-* `rm main.zip`
-* `wget https://github.com/GrokImageCompression/grok/archive/refs/heads/master.zip`
-* `unzip master.zip`
-* `cd grok-master`
-* `mkdir build`
-* `cd build`
-* `cmake -DCMAKE_BUILD_TYPE=Release ..`
-
-> To maximize processing speed, you may specify the number of processing *cores* Grok should use with the command: `make -j[number of cores]`. To find the machine's cores count, run `hwinfo --short`.
-
-* `make`
-* `sudo make install`
-* `sudo make clean`
 
 ## 5. Test your installation
 
