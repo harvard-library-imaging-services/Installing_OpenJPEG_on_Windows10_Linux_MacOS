@@ -33,7 +33,7 @@ It can be installed via [Homebrew](https://brew.sh/) with the command: `brew ins
 
 * Update the installation by running the following command: `sudo apt-get update ; sudo apt-get upgrade -y`
 
-* Install some additional software modules: `sudo apt-get install pkg-config valgrind emacs-nox libltdl-dev libtiff-tools exiftool git git-lfs cmake liblcms2-dev libtiff-dev libpng-dev libz-dev unzip libzstd-dev libwebp-dev build-essential hwinfo ; sudo python get-pip.py ; sudo apt-get install python3-jpylyzer`.
+* Install some additional software modules: `sudo apt-get install pkg-config valgrind emacs-nox libltdl-dev libtiff-tools exiftool git git-lfs cmake liblcms2-dev libtiff-dev libpng-dev libheif1 libheif-dev libz-dev unzip libzstd-dev libwebp-dev build-essential hwinfo ; sudo python get-pip.py ; sudo apt-get install python3-jpylyzer`.
 
 ## 2. Install OpenJPEG by compiling the source code:
 * `mkdir ~/install`
