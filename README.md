@@ -69,7 +69,7 @@ As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC displa
 
 ## 4. Install GrokImageCompression
 
-The process of compiling *Grok* is so fussy, that I, as of March 2023, recommend:
+The process of compiling *Grok* is so fussy that, as of March 2023, we recommend:
 
 1. [Install Homebrew](https://brew.sh/) on your Linux or Mac OS instance;
 2. Install [grokj2k](https://formulae.brew.sh/formula/grokj2k#default): `brew install grokj2k`
