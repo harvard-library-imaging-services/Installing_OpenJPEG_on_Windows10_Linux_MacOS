@@ -130,10 +130,6 @@ The process of compiling *Grok* is so fussy that, as of March 2023, we recommend
 ### Selected Grok-specific switches
 (See: [Options](https://github.com/GrokImageCompression/grok/wiki/3.-grk_compress#options) for complete list)
 
-* `-TransferExifTags`
-
-> Transfer all Exif tags to output file. Note: [ExifTool](https://exiftool.org/) must be installed for this command line argument to function correctly.
-
 * `-logfile [output file name]`
 
 > Log to file. File name will be set to`output file name`
@@ -158,7 +154,7 @@ The process of compiling *Grok* is so fussy that, as of March 2023, we recommend
 
 * `opj_compress -i in.tif -o out_lossless.jp2 -p RLCP -t 1024,1024 -EPH -SOP`
 
-* `grk_compress -TransferExifTags -i in.tif -o grk_out_lossless.jp2 -p RLCP -t 1024,1024 -EPH -SOP`
+* `grk_compress -i in.tif -o grk_out_lossless.jp2 -p RLCP -t 1024,1024 -EPH -SOP`
 
 ### Lossy example
 
@@ -167,8 +163,8 @@ The process of compiling *Grok* is so fussy that, as of March 2023, we recommend
 
 ---
 
-* `grk_compress -TransferExifTags -i in.tif -o grk_out_lossy_42db.jp2 -p RLCP -t 1024,1024 -EPH -SOP -I -q 42`
-* `grk_compress -TransferExifTags -i in.tif -o grk_out_lossy_r10.jp2 -p RLCP -t 1024,1024 -EPH -SOP -r 10`
+* `grk_compress -i in.tif -o grk_out_lossy_42db.jp2 -p RLCP -t 1024,1024 -EPH -SOP -I -q 42`
+* `grk_compress -i in.tif -o grk_out_lossy_r10.jp2 -p RLCP -t 1024,1024 -EPH -SOP -r 10`
 
 ### [Decompress](https://man.archlinux.org/man/extra/openjpeg2/opj_decompress.1.en): converting JP2 files to other formats
 
@@ -189,7 +185,7 @@ The process of compiling *Grok* is so fussy that, as of March 2023, we recommend
 * `opj_compress -OutFor jp2 -ImgDir /images/in  -p RLCP -t 1024,1024 -EPH -SOP -OutDir /images/out`
 
 
-* `grk_compress -OutFor jp2 -TransferExifTags -ImgDir /images/in -p RLCP -t 1024,1024 -EPH -SOP -OutDir /images/out`
+* `grk_compress -OutFor jp2 -ImgDir /images/in -p RLCP -t 1024,1024 -EPH -SOP -OutDir /images/out`
 
 ### Shell scripts
 
