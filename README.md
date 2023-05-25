@@ -1,5 +1,5 @@
 
-# Installing OpenJPEG on Windows 10, Linux, and MacOS
+# Installing OpenJPEG on Windows 1X, Linux, and MacOS
 
 [OpenJPEG](https://www.openjpeg.org/) is an open-source JPEG 2000 codec written in C. There is no GUI. This command-line tool is easy to run and maintain using a command-line friendly OS like Linux, so I recommend installing Linux on your Windows 10 machine, taking advantage of W10's [**Windows Subsystem for Linux**](https://docs.microsoft.com/en-us/windows/wsl/) feature.
 
