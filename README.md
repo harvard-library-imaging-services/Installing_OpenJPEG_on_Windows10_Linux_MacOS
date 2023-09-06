@@ -13,7 +13,8 @@ While it is easier to install OpenJPEG and ImageMagick via pre-compiled versions
 
 ### Why install GrokImageCompression?
 
-The original JPEG 2000 standard only accommodated three color encoding declarations: sGray, sYCC, and sRGB. As color management gained popularity and a wider variety of [ICC](https://en.wikipedia.org/wiki/ICC_profile) display profiles were being embedded in images, the standard was amended in 2004 ([15444-1annexi.pdf](https://wiki.opf-labs.org/download/attachments/11337762/15444-1annexi.pdf?version=1&modificationDate=1324478641000)) to accommodate the use of restricted ICC profiles.
+The original JPEG 2000 standard only accommodated three color encoding declarations: sGray, sYCC, and sRGB. As color management gained popularity and a wider variety of [ICC](https://en.wikipedia.org/wiki/ICC_profile) display profiles were being embedded in images, the standard was amended in 2004 to accommodate the use of restricted ICC profiles. Those changes are incorporated into [ISO/IEC 15444-1:2016
+Information technology — JPEG 2000 image coding system: Core coding system — Part 1](https://www.iso.org/standard/70018.html), the 2016 update to the standard.
 
 As of the *openjp2 library v2.3.1.*, OpenJPEG does not carry over the ICC display profiles embedded within the source image, but instead converts any color encoding to sRGB on output.
 
