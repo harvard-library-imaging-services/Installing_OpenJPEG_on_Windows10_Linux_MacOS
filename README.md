@@ -200,7 +200,6 @@ find . -type f | grep --extended-regexp ".*\.tif$" | sed -E "s/.tif//g" > tiffNa
 ls -1 *.tif | wc -l | xargs echo "TIFF count: "
 while read line
 do
-#    grk_compress -i $line".tif" -o $line".jp2" -p RLCP -t 1024,1024 -EPH -SOP
     grk_compress -i $line".tif" -o $line"_lossless.jp2" -p RLCP -t 1024,1024 -EPH -SOP
     echo "converting "$line".tif"
 done < tiffNameStem.txt
@@ -221,7 +220,6 @@ find . -type f | grep --extended-regexp ".*\.tif$" | sed -E "s/.tif//g" > tiffNa
 ls -1 *.tif | wc -l | xargs echo "TIFF count: "
 while read line
 do
-#grk_compress -i $line".tif" -o $line".jp2" -p RLCP -t 1024,1024 -EPH -SOP -I -q 42
     grk_compress -i $line".tif" -o $line"_lossy.jp2" -p RLCP -t 1024,1024 -EPH -SOP -I -q 42
     echo "converting "$line".tif"
 done < tiffNameStem.txt
