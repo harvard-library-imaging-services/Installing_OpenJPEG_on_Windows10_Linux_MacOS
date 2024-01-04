@@ -186,7 +186,7 @@ The process of compiling *Grok* is so fussy that, as of March 2023, we recommend
 * `opj_compress -OutFor jp2 -ImgDir /images/in  -p RLCP -t 1024,1024 -EPH -SOP -OutDir /images/out`
 
 
-* `grk_compress -out_fmt jp2 -in_dir /images/in -p RLCP -t 1024,1024 -EPH -SOP -out_dir /images/out`
+* `grk_compress -out_fmt jp2 -batch_src /images/in -p RLCP -t 1024,1024 -EPH -SOP -out_dir /images/out`
 
 ### Shell scripts
 
