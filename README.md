@@ -74,9 +74,7 @@ It can be installed via [Homebrew](https://brew.sh/) with the command: `brew ins
 
 The process of compiling *Grok* is so fussy that, as of March 2023, we recommend:
 
-1. [Install Homebrew](https://brew.sh/) on your Linux instance
-2. Install [grokj2k](https://formulae.brew.sh/formula/grokj2k#default) with: `brew install grokj2k`
-
+`sudo apt-get install libgrokj2k1 grokj2k-tools libgrokj2k1-dev libgrokj2k1-doc`
 
 ## 5. Test your installation
 
