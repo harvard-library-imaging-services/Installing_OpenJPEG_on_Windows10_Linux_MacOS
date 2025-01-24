@@ -106,11 +106,11 @@ The process of compiling *Grok* is so fussy that, as of January 2024, we recomme
 
 ### Encoding JP2 files
 
-* Command: `opj_compress` and `grk_compress`
-* Switches:
+#### Command: `opj_compress`, OpenJPEG
+* Switches, partial list:
 	* `-i <inputFile.ext>`
 	*  `-p RLCP` (progression order)
-	*  `-t 1024,1024` (tile size)
+	*  `-t 1024,1024` (tile size, width,height)
 	*  `-EPH` (End of Packet Header marker)
 	*  `-SOP` (Start of Packet)
 	*  `-ImgDir <image dir>` (cannot be used with **-i** switch)
@@ -126,28 +126,24 @@ The process of compiling *Grok* is so fussy that, as of January 2024, we recomme
 
      > Input format. Will override file tag.
 
-### Selected Grok-specific switches
-(See: [Options](https://github.com/GrokImageCompression/grok/wiki/3.-grk_compress#options) for complete list)
-
-* `-logfile [output file name]`
-
-> Log to file. File name will be set to`output file name`
-
-* `-num_threads [number of threads]`
-
-> Number of threads used for T1 compression. Default is total number of logical cores.
-
-* `-Comment [comment]`
-
-> Add `<comment>` in comment marker segment(s). Multiple comments (up to a total of 256) can be specified, separated by the `|` character. For example: `-C "This is my first comment|This is my second` will store `This is my first comment` in the first comment marker segment, and `This is my second` in a second comment marker.
-
-* `-Q, -CaptureRes [capture resolution X,capture resolution Y]`
-
-> Capture resolution in pixels/metre, in double precision.
-
-> * If the input image has a resolution stored in its header, then this resolution will be set as the capture resolution, by default.
-> * If the`-Q` command line parameter is set, then it will override the resolution stored in the input image, if present.
-> * The special values `[0,0]` for `-Q` will force the encoder to **not** store capture resolution, even if present in input image.
+#### Command: `grk_compress`, Grok
+* Switches, partial list:
+	* `-i <inputFile.ext>`
+	*  `-p RLCP` (progression order)
+	*  `-t 1024,1024` (tile size, [width,height])
+	*  `-EPH` (End of Packet Header marker)
+	*  `-SOP` (Start of Packet)
+	*  `-batch_src <input dir>` (cannot be used with **-i** switch)
+ 	*  `-out_dir <output dir>` (required with `batch_src` is used)
+	*  `-o <outputFile.ext>`
+	*  `-I` (specifies lossy encoding)
+	*  `-q <quality in db>`
+	*  `-r <compression ratio>`
+	*  `-out_fmt [J2K|J2C|JP2]`
+ 	*  `-V` (transfer Exif tags)
+	* `-logfile <output file name>`
+ 	* `-num_threads <number of threads>`
+   	* `-comment <comment>`
 
 ### Lossless example
 
@@ -175,14 +171,13 @@ The process of compiling *Grok* is so fussy that, as of January 2024, we recomme
 
 * `grk_decompress -i infile.j2k -o outfile.png`
 
-* `grk_decompress -ImgDir images/ -OutFor tif`
+* `grk_decompress -batch_src images/ -out_fmt tif`
 
 —
 
 ### Encoding entire directories
 
 * `opj_compress -OutFor jp2 -ImgDir /images/in  -p RLCP -t 1024,1024 -EPH -SOP -OutDir /images/out`
-
 
 * `grk_compress -out_fmt jp2 -batch_src /images/in -p RLCP -t 1024,1024 -EPH -SOP -out_dir /images/out`
 
